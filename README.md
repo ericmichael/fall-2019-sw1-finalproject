@@ -159,8 +159,10 @@ Make the API endpoints for the user stories you selected.
 You should make a branch per user story, then merge that branch into master when it is done.
 
 
-
 **IMPORTANT: You are responsible for writing the tests and passing them.**
+
+**ALSO: Don't forget to add whatever.auto_upgrade! to your models.rb and whatever.auto_migrate! to spec/spec_helper.rb**
+
 
 *Run tests with: `bundle exec rspec spec/part2_spec.rb`
 
