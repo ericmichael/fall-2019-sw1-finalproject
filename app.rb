@@ -3,14 +3,6 @@ require "sinatra/namespace"
 require_relative 'models.rb'
 require_relative "api_authentication.rb"
 
-def placeholder
-	halt 501, {message: "Not Implemented"}.to_json
-end
-
-def api_admin_only!
-	api_authenticate!
-	halt 401, {message: "Admins only"}.to_json if !current_user.administrator?
-end
 #creating an admin account
 #for you, if you have no accounts
 if User.all.count == 0
@@ -19,6 +11,11 @@ if User.all.count == 0
 	u.password = "admin"
 	u.role_id = 0
 	u.save
+end
+
+def api_admin_only!
+	api_authenticate!
+	halt 401, {message: "Admins only"}.to_json if !current_user.administrator?
 end
 
 namespace '/api' do
